@@ -241,8 +241,9 @@ export namespace PromiseOnly {
 		responseType: ResponseType;
 		resolveBodyOnly: boolean;
 		isStream: boolean;
+		skipDecodeURI: boolean;
 		encoding?: BufferEncoding;
-		pagination?: Required<PaginationOptions<unknown, unknown>['pagination']>;
+		pagination?: Required<PaginationOptions<unknown, unknown>["pagination"]>;
 	}
 
 	export interface Defaults {
