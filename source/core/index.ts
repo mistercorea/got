@@ -1450,7 +1450,11 @@ export default class Request extends Duplex implements RequestEvents<Request> {
 				}
 
 				this.requestUrl = normalizedURL.toString();
-				decodeURI(this.requestUrl);
+				if (this.options && this.options.skipDecodeURI === true) {
+					// if skipDecodeURI is set to true then do not decode it will avoid some decoding errors
+				} else {
+          decodeURI(this.requestUrl);
+        }
 
 				await this._finalizeBody();
 				await this._makeRequest();
